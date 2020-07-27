@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<%@ include file="/WEB-INF/view/common/include/header.jsp" %>
+
+ <script type="text/javascript">
+
+ function submitFn(url)
+ {
+	 $("#form_1").attr("action",url);
+	 $("#form_1").submit();
+ }
+
+ </script>
+</head>
+<body>
+	<%@ include file="/WEB-INF/view/common/include/promptMessage.jsp" %>
+	<div id="activity">
+	<div class="form-panel">
+			<form id="form_1" name="form"    method="post"  class="form-horizontal">
+			 @formColumn
+			</form>
+		</div>
+	</div>
+</body>
+</html>

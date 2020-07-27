@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/view/common/include/loadDataTable.jsp" %>
+<table class="table">
+<thead>
+<tr >
+<th style="width:60px; min-width: 60px;">序号</th>
+@tableHeaderColumn
+<th>操作</th>
+</tr>
+</thead>
+<tbody  >
+ <c:if test="${empty pagedata.page}">
+<tr class=gvItem>
+<td align="center" colspan="@tableColumnTotal+1">查询数据为空！</td>
+</tr>
+</tbody>
+</table>
+</c:if>
+<c:if test="${not empty pagedata.page }">
+<c:forEach items="${pagedata.page}" var="modelObj" varStatus="status">
+ <tr >
+        <td ><c:out value="${pagedata.startOfPage+status.index+1}"/></td>
+        @tableDataColumn
+        <td>
+            <div class="dropdown">
+			  <a class="btn-link"   data-toggle="dropdown">操作 <span class="caret"></span></a>
+			  <ul class="dropdown-menu pull-right">
+			   <li><a href="##" onclick="openWindow({'title':'@classDescription浏览','url':'view@LogicalTableName.do?@primaryKeyName=<c:out value="${modelObj.@primaryKeyName}"/>'})"   >浏览</a></li>
+			   <li><a href="##" onclick="openWindow({'title':'@classDescription编辑','url':'edit@LogicalTableName.do?@primaryKeyName=<c:out value="${modelObj.@primaryKeyName}"/>'})"   >编辑</a></li>
+			   <li><a href="##" onclick="delete@LogicalTableName('<c:out value="${modelObj.@primaryKeyName}"/>')">删除</a></li>
+			  </ul>
+			</div>
+		</td>
+ </tr>
+</c:forEach>
+</tbody>
+</table>
+	
+<ul class="pager" id="pager"></ul>
+<script type="text/javascript">
+<!--
+$(function(){
+jqPager({id:"pager",totalPages:${pagedata.totalPage},pageIndex:${pagedata.pageIndex},change:toPage});
+});
+//-->
+</script>
+</c:if>
+
+	
+   

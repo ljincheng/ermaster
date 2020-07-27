@@ -1,0 +1,20 @@
+package @package;
+
+@import
+
+/**
+ * @classDescription.
+ * @author ljc
+ * @version v1.0
+ */
+public class @PhysicalTableName@suffix @extends @implements {
+
+	/** serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+@properties
+
+@setter_getter
+@hashCode_equals
+
+}

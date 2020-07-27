@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin
+   id="org.insightech.er.ant"
+   name="ERMaster-ant"
+   version="1.0"
+>
+   <requires>
+      <import plugin="org.apache.ant" version="1.7.1" match="equivalent"/>
+      <import plugin="org.eclipse.gef" version="3.5.0" match="equivalent"/>
+      <import plugin="org.eclipse.ui" version="3.5.0" match="equivalent"/>
+      <import plugin="org.eclipse.core.runtime" version="3.5.0"/>
+      <import plugin="org.eclipse.ui.views" version="3.8.0"/>
+      <import plugin="org.eclipse.core.resources" version="3.10.0"/>
+      <import plugin="org.eclipse.core.expressions" version="3.5.0"/>
+      <import plugin="org.eclipse.ui.ide" version="3.11.0"/>
+      <import plugin="org.eclipse.ui.editors" version="3.9.0"/>
+   </requires>
+	
+</plugin>

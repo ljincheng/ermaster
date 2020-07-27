@@ -1,0 +1,11 @@
+	 <update id="updateBy@PrimaryKeyName" parameterType="@logicalTableName@suffix">
+	 	 update  @tableName set @updateColumns WHERE @primaryKeyColumnName=#{@primaryKeyName}
+	 </update>
+    
+    <delete id="deleteBy@PrimaryKeyName" parameterType="@primaryKeyType">
+        DELETE FROM @tableName WHERE @primaryKeyColumnName=#{@primaryKeyName}
+    </delete>
+    
+     <select id="findBy@PrimaryKeyName" parameterType="@primaryKeyType" resultType="@logicalTableName@suffix">
+        SELECT * FROM  @tableName WHERE @primaryKeyColumnName=#{@primaryKeyName}
+    </select>

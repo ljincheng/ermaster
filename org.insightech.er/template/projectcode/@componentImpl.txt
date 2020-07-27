@@ -1,0 +1,54 @@
+package @package;
+
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@import
+
+/**
+ * @classDescription.
+ * @author ljc
+ * @version v1.0
+ */
+@Component("@logicalTableNameComponent")
+public class @LogicalTableNameComponentImpl  implements @LogicalTableNameComponent{
+	
+	private @LogicalTableNameDao @logicalTableNameDao;
+	
+	@Autowired
+	public void set@LogicalTableNameDao(@LogicalTableNameDao @logicalTableNameDao)
+	{
+		this.@logicalTableNameDao=@logicalTableNameDao;
+	}
+	
+	
+	@Override
+	public Integer insert@LogicalTableName(@LogicalTableName@suffix @logicalTableName)
+	{
+		return @logicalTableNameDao.insert(@logicalTableName);
+	}
+	
+	@Override
+	public List<@LogicalTableName@suffix> query@LogicalTableNameList(Map<String,Object> selectItem)
+	{
+		return @logicalTableNameDao.queryList(selectItem);
+	}
+
+	@Override
+	public PageDo<@LogicalTableName@suffix> query@LogicalTableNameListPage(Long pageIndex,Integer pageSize,Map<String,Object> selectItem)
+	{
+		 if(selectItem==null)
+		 {
+			 selectItem=new HashMap<String,Object>();
+		 }
+		 PageDo<@LogicalTableName@suffix> pageBean=new PageDo<@LogicalTableName@suffix>(pageIndex, pageSize);
+		 selectItem.put("page", pageBean);
+		 pageBean.setPage(@logicalTableNameDao.queryListPage(selectItem));
+		return pageBean;
+	}
+	
+@componentImpl_primarykey	
+}

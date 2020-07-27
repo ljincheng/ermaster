@@ -1,0 +1,18 @@
+
+	@Override
+	public Integer update@LogicalTableNameBy@PrimaryKeyName(@LogicalTableName@suffix @logicalTableName)
+	{
+		return @logicalTableNameComponent.update@LogicalTableNameBy@PrimaryKeyName(@logicalTableName);
+	}
+
+	@Override
+	public Integer delete@LogicalTableNameBy@PrimaryKeyName(@primaryKeyType @primaryKeyName)
+	{
+		return @logicalTableNameComponent.delete@LogicalTableNameBy@PrimaryKeyName(@primaryKeyName);
+	}
+
+	@Override
+	public @LogicalTableName@suffix find@LogicalTableNameBy@PrimaryKeyName(@primaryKeyType @primaryKeyName)
+	{
+		return @logicalTableNameComponent.find@LogicalTableNameBy@PrimaryKeyName(@primaryKeyName);
+	}

@@ -1,0 +1,39 @@
+package @package;
+
+import java.util.List;
+import java.util.Map;
+import org.springframework.stereotype.Repository;
+@import
+
+/**
+ * @classDescription.
+ * @author ljc
+ * @version v1.0
+ */
+@Repository("@logicalTableNameDao")
+public interface @LogicalTableNameDao{
+	
+	/**
+	 * 添加@classDescription.
+	 * @param @logicalTableName
+	 * @return
+	 */
+	public Integer insert(@LogicalTableName@suffix @logicalTableName);
+	
+	/**
+	 * 获取@classDescription数据列表.
+	 * @param selectItem
+	 * @return
+	 */
+	public List<@LogicalTableName@suffix> queryList(Map<String,Object> selectItem);
+	
+	/**
+	 * 获取@classDescription数据分页列表.
+	 * @param selectItem
+	 * @return
+	 */
+	public List<@LogicalTableName@suffix> queryListPage(Map<String,Object> selectItem);
+	
+@dao_primarykey	
+	 
+}

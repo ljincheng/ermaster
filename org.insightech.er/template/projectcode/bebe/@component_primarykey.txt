@@ -1,0 +1,24 @@
+
+	/**
+	 * 根据@PrimaryKeyName修改@classDescription.
+	 * @param conn
+	 * @param @logicalTableName
+	 * @return
+	 */
+	public void updateBy@PrimaryKeyName(Connection conn,@LogicalTableName@suffix @logicalTableName);
+
+	/**
+	 * 根据@PrimaryKeyName删除@classDescription.
+	 * @param conn
+	 * @param @primaryKeyName
+	 * @return
+	 */
+	public void deleteBy@PrimaryKeyName(Connection conn,@primaryKeyType @primaryKeyName);
+
+	/**
+	 * 根据@PrimaryKeyName获取@classDescription.
+	 * @param conn
+	 * @param @primaryKeyName
+	 * @return
+	 */
+	public @LogicalTableName@suffix findBy@PrimaryKeyName(Connection conn,@primaryKeyType @primaryKeyName);

@@ -1,0 +1,48 @@
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.sql.Connection;
+
+import com.bebe.dbutil.Query;
+import com.bebe.core.PageData;
+
+
+/**
+ * @classDescription.
+ * @author ljc
+ * @version v1.0
+ */
+public class @LogicalTableNameDaoImpl implements @LogicalTableNameDao {
+ 
+	
+	/**
+	 * 添加@classDescription.
+	 * @param conn
+	 * @param @logicalTableName
+	 * @return
+	 */
+	public void insert(Connection conn,@LogicalTableName@suffix @logicalTableName)
+	{
+		String sql="INSERT INTO @tableName (@insertColumnsName) VALUES (@insertColumnsPlaceHolder)";
+		Query query=new Query(conn);
+		Object[] params=new Object[]{@insertObjectValue};
+		query.excute(sql,params);
+	}
+	
+	/**
+	 * 获取@classDescription数据列表.
+	 * @param conn
+	 * @param selectItem
+	 * @return
+	 */
+	public List<@LogicalTableName@suffix> queryList(Connection conn,Map<String,Object> selectItem)
+	{
+		String sql="SELECT @columnsNameList FROM  @tableName WHERE 1=1 ";
+		Query query=new Query(conn);
+		Object[] params=new Object[]{};
+		return query.beanList(@LogicalTableName.class, sql,  params);
+	}
+
+@daoImpl_primarykey
+}

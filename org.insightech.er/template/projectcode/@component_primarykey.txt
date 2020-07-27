@@ -1,0 +1,21 @@
+
+	/**
+	 * 根据@PrimaryKeyName修改@classDescription.
+	 * @param @logicalTableName
+	 * @return
+	 */
+	public Integer update@LogicalTableNameBy@PrimaryKeyName(@LogicalTableName@suffix @logicalTableName);
+
+	/**
+	 * 根据@PrimaryKeyName删除@classDescription.
+	 * @param @primaryKeyName
+	 * @return
+	 */
+	public Integer delete@LogicalTableNameBy@PrimaryKeyName(@primaryKeyType @primaryKeyName);
+
+	/**
+	 * 根据@PrimaryKeyName获取@classDescription.
+	 * @param @primaryKeyName
+	 * @return
+	 */
+	public @LogicalTableName@suffix find@LogicalTableNameBy@PrimaryKeyName(@primaryKeyType @primaryKeyName);

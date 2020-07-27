@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="@namespace@LogicalTableNameDao">
+     
+    
+    
+    <insert id="insert" parameterType="@logicalTableName@suffix" @insertKeyProperty >
+       INSERT INTO @tableName (@insertColumnList) VALUES (@insertColumnValue)
+    </insert>
+    
+    <select id="queryList" parameterType="map" resultType="@logicalTableName@suffix">
+        SELECT * FROM  @tableName WHERE 1=1
+@whereColumnMap
+    </select>
+    
+    <select id="queryListPage" parameterType="map" resultType="@logicalTableName@suffix">
+        SELECT * FROM  @tableName WHERE 1=1
+@whereColumnMap
+    </select>
+
+@mybatis_primarykey
+  
+</mapper>

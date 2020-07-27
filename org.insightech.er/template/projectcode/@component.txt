@@ -1,0 +1,41 @@
+package @package;
+
+import java.util.List;
+import java.util.Map;
+
+@import
+
+/**
+ * @classDescription.
+ * @author ljc
+ * @version v1.0
+ */
+public interface @LogicalTableNameComponent {
+	
+	/**
+	 * 添加@classDescription.
+	 * @param @logicalTableName
+	 * @return
+	 */
+	public Integer insert@LogicalTableName(@LogicalTableName@suffix @logicalTableName);
+	
+	/**
+	 * 获取@classDescription数据列表.
+	 * @param selectItem
+	 * @return
+	 */
+	public List<@LogicalTableName@suffix> query@LogicalTableNameList(Map<String,Object> selectItem);
+
+	/**
+	 * 获取@classDescription数据集
+	 * @param pageIndex
+	 * 起始页
+	 * @param pageSize
+	 * 每页记录数
+	 * @param selectItem
+	 * 过滤条件
+	 * @return
+	 */
+	public PageDo<@LogicalTableName@suffix> query@LogicalTableNameListPage(Long pageIndex,Integer pageSize,Map<String,Object> selectItem);
+@component_primarykey	
+}

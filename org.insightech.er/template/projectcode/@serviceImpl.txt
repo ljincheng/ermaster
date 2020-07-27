@@ -1,0 +1,47 @@
+package @package;
+
+import java.util.List;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+@import
+
+/**
+ * @classDescription.
+ * @author ljc
+ * @version v1.0
+ */
+@Service("@logicalTableNameService")
+public class @LogicalTableNameServiceImpl  implements @LogicalTableNameService{
+	
+	private @LogicalTableNameComponent @logicalTableNameComponent;
+	
+	@Autowired
+	public void set@LogicalTableNameComponent(@LogicalTableNameComponent @logicalTableNameComponent)
+	{
+		this.@logicalTableNameComponent=@logicalTableNameComponent;
+	}
+	
+	
+	@Override
+	public Integer insert@LogicalTableName(@LogicalTableName@suffix @logicalTableName)
+	{
+		return @logicalTableNameComponent.insert@LogicalTableName(@logicalTableName);
+	}
+	
+	@Override
+	public List<@LogicalTableName@suffix> query@LogicalTableNameList(Map<String,Object> selectItem)
+	{
+		return @logicalTableNameComponent.query@LogicalTableNameList(selectItem);
+	}
+
+	@Override
+	public PageDo<@LogicalTableName@suffix> query@LogicalTableNameListPage(Long pageIndex,Integer pageSize,Map<String,Object> selectItem)
+	{
+		 return @logicalTableNameComponent.query@LogicalTableNameListPage(pageIndex,pageSize,selectItem);
+	}
+	
+@serviceImpl_primarykey	
+}

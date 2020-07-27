@@ -1,0 +1,58 @@
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.sql.Connection;
+
+import com.bebe.dbutil.Query;
+import com.bebe.core.PageData;
+
+
+/**
+ * @classDescription.
+ * @author ljc
+ * @version v1.0
+ */
+public class @LogicalTableNameDaoImpl implements @LogicalTableNameDao {
+ 
+	public void add@LogicalTableName(Connection conn,@LogicalTableName @logicalTableName)
+	{
+		String sql="INSERT INTO @tableName (@columnsNameSet) VALUES (@placeholder)";
+		Query query=new Query(conn);
+		Object[] params=new Object[]{@classParams};
+		query.excute(sql,params);
+	}
+	
+	public void update@LogicalTableNameBy@PrimaryKeyName(Connection conn,@LogicalTableName @logicalTableName)
+	{
+		String sql="UPDATE @tableName SET @updateColumns WHERE @primaryKeyName=?";
+		Query query=new Query(conn);
+		Object[] params=new Object[]{@updateClassValue,@primaryKeyValue};
+		query.excute(sql,params);
+	}
+	public void delete@LogicalTableNameBy@PrimaryKeyName(Connection conn,@primaryKeyType @primaryKeyName)
+	{
+		String sql="DELETE FROM @tableName WHERE @primaryKeyName=?";
+		Query query=new Query(conn);
+		Object[] params=new Object[]{@primaryKeyName};
+		query.excute(sql,params);
+	}
+
+	public @LogicalTableName find@LogicalTableNameBy@PrimaryKeyName(Connection conn,@primaryKeyType @primaryKeyName);
+	{
+		String sql="SELECT @columnsNameSet FROM  @tableName WHERE @primaryKeyName=?";
+		Query query=new Query(conn);
+		Object[] params=new Object[]{@primaryKeyName};
+		return query.bean(@LogicalTableName.class,sql,params);
+	
+	}
+
+	public PageData<@LogicalTableName> query@LogicalTableNamePage(Connection conn,long pageIndex,int pageSize,Map<String,Object> selectedItem)
+	{
+		String sql="SELECT @columnsNameSet FROM  @tableName WHERE 1=1 ";
+		Query query=new Query(conn);
+		Object[] params=new Object[]{};
+		return query.beanPage(@LogicalTableName.class, sql, pageIndex, pageSize, params);
+	}
+
+}

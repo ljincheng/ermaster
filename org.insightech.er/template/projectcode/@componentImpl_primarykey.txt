@@ -1,0 +1,18 @@
+
+	@Override
+	public Integer update@LogicalTableNameBy@PrimaryKeyName(@LogicalTableName@suffix @logicalTableName)
+	{
+		return @logicalTableNameDao.updateBy@PrimaryKeyName(@logicalTableName);
+	}
+
+	@Override
+	public Integer delete@LogicalTableNameBy@PrimaryKeyName(@primaryKeyType @primaryKeyName)
+	{
+		return @logicalTableNameDao.deleteBy@PrimaryKeyName(@primaryKeyName);
+	}
+
+	@Override
+	public @LogicalTableName@suffix find@LogicalTableNameBy@PrimaryKeyName(@primaryKeyType @primaryKeyName)
+	{
+		return @logicalTableNameDao.findBy@PrimaryKeyName(@primaryKeyName);
+	}

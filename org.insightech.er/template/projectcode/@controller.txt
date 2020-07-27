@@ -1,0 +1,218 @@
+package @package;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+ 
+@import
+
+/**
+ * @classDescription.
+ * @author ljc
+ * @version v1.0
+ */
+@Controller
+@RequestMapping(value="/@javaFolder/")
+public class @LogicalTableNameController extends BaseAction{
+
+	private static Logger logger=LoggerFactory.getLogger(@LogicalTableNameController.class);
+	
+	private @LogicalTableNameService @logicalTableNameService;
+	
+	@Autowired
+	public void set@LogicalTableNameService(@LogicalTableNameService @logicalTableNameService)
+	{
+		this.@logicalTableNameService=@logicalTableNameService;
+	}
+	
+	/**
+	 * @classDescription数据分页
+	 * @return
+	 */
+	@RequestMapping(value="/@logicalTableNameList.do",method=RequestMethod.GET)
+	public ModelAndView @logicalTableNameList_methodGet()
+	{
+		ModelAndView view=new ModelAndView("@javaFolder/@logicalTableNameList");
+		return view;
+	}
+	
+	/**
+	 * @classDescription数据分页
+	 * @param request
+	 * @param pageIndex
+	 * @param pageSize
+	 * @param startDate  
+	 * @param endDate  
+	 * @return
+	 */
+	@RequestMapping(value="/@logicalTableNameList.do",method=RequestMethod.POST)
+	public ModelAndView @logicalTableNameList_methodPost(HttpServletRequest request,Long pageIndex,Integer pageSize,String startDate,String endDate)
+	{
+		ModelAndView view=new ModelAndView("@javaFolder/@logicalTableNameList_table");
+		try{ 
+			 Map<String, Object> selectItem=new HashMap<String, Object>();
+			 setDateBetweemToMap(selectItem, startDate, endDate);
+			 pageIndex=pageIndex==null?1L:pageIndex;
+			 pageSize=pageSize==null?20:pageSize;
+			PageDo<@LogicalTableName@suffix> pagedata= @logicalTableNameService.query@LogicalTableNameListPage(pageIndex,pageSize, selectItem);
+			view.addObject("pagedata",pagedata);
+			
+		}catch(BusinessException e)
+		{
+			setPromptException(view, e);
+		}catch (Exception e) {
+			setPromptException(view, e);
+			logger.error("获取@classDescription数据分页异常", e);
+		}
+		return view;
+	}
+	
+	/**
+	 * 新增@classDescription
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/add@LogicalTableName.do",method=RequestMethod.GET)
+	public ModelAndView add@LogicalTableName_methodGet(HttpServletRequest request)
+	{
+		ModelAndView view=new ModelAndView("@javaFolder/add@LogicalTableName");
+		try{
+			view.addObject("@logicalTableName", null);
+		}catch (Exception e) {
+			setPromptException(view, e);
+			logger.error("添加@classDescription异常（GET）",e);
+		}
+		return view;
+	}
+	
+	 /**
+	 * 新增@classDescription
+	 * @param request
+	 * @param @logicalTableName
+	 * @return
+	 */
+	@RequestMapping(value="/add@LogicalTableName.do",method=RequestMethod.POST)
+	public ModelAndView add@LogicalTableName_methodPost(HttpServletRequest request,@LogicalTableName@suffix @logicalTableName)
+	{
+		ModelAndView view=new ModelAndView("@javaFolder/add@LogicalTableName");
+		try{
+			 
+			Integer result= @logicalTableNameService.insert@LogicalTableName(@logicalTableName);
+			AssertUtils.isTrue(result==1, "数据库新增记录失败");
+			setPromptMessage(view, "操作成功");
+		}catch (BusinessException e) {
+			setPromptException(view, e);
+		}catch (Exception e) {
+			setPromptException(view, e);
+			logger.error("添加@classDescription异常（POST）",e);
+		}finally {
+			view.addObject("@logicalTableName", @logicalTableName);
+		}
+		return view;
+	}
+	
+	 /**
+	 * 浏览@classDescription
+	 * @param request
+	 * @param @primaryKeyName
+	 * @return
+	 */
+	@RequestMapping(value="/view@LogicalTableName.do",method=RequestMethod.GET)
+	public ModelAndView view@LogicalTableName_methodGet(HttpServletRequest request,@primaryKeyType @primaryKeyName)
+	{
+		ModelAndView view =new ModelAndView("@javaFolder/view@LogicalTableName");
+		try{
+			@LogicalTableName@suffix @logicalTableName= @logicalTableNameService.find@LogicalTableNameBy@PrimaryKeyName(@primaryKeyName);
+			view.addObject("@logicalTableName", @logicalTableName);
+		}catch (BusinessException e) {
+			setPromptException(view, e);
+		}catch (Exception e) {
+			setPromptException(view, e);
+			logger.error("浏览@classDescription异常（GET）",e);
+		}
+		return view;
+	}
+	
+	 /**
+	 * 编辑@classDescription
+	 * @param request
+	 * @param @primaryKeyName
+	 * @return
+	 */
+	@RequestMapping(value="/edit@LogicalTableName.do",method=RequestMethod.GET)
+	public ModelAndView edit@LogicalTableName_methodGet(HttpServletRequest request,@primaryKeyType @primaryKeyName)
+	{
+		ModelAndView view =new ModelAndView("@javaFolder/add@LogicalTableName");
+		try{
+			@LogicalTableName@suffix @logicalTableName= @logicalTableNameService.find@LogicalTableNameBy@PrimaryKeyName(@primaryKeyName);
+			view.addObject("@logicalTableName", @logicalTableName);
+		}catch (BusinessException e) {
+			setPromptException(view, e);
+		}catch (Exception e) {
+			setPromptException(view, e);
+			logger.error("编辑@classDescription异常（GET）",e);
+		}
+		return view;
+	}
+	
+	/**
+	 * 编辑@classDescription
+	 * @param request
+	 * @param @logicalTableName
+	 * @return
+	 */
+	@RequestMapping(value="/edit@LogicalTableName.do",method=RequestMethod.POST)
+	public ModelAndView edit@LogicalTableName_methodPost(HttpServletRequest request,@LogicalTableName@suffix  @logicalTableName)
+	{
+		ModelAndView view =new ModelAndView("@javaFolder/add@LogicalTableName");
+		try{
+			AssertUtils.isNotBlank(@logicalTableName.get@PrimaryKeyName(), "参数无效");
+			Integer result= @logicalTableNameService.update@LogicalTableNameBy@PrimaryKeyName(@logicalTableName);
+			AssertUtils.isTrue(result.equals(1), "数据库修改失败");
+			setPromptMessage(view, "操作成功");
+		}catch (BusinessException e) {
+			setPromptException(view, e);
+		}catch (Exception e) {
+			setPromptException(view, e);
+			logger.error("编辑@classDescription异常（GET）",e);
+		}finally {
+			view.addObject("@logicalTableName", @logicalTableName);
+		}
+		return view;
+	}
+	
+	/**
+	 * 删除@classDescription
+	 * @param request
+	 * @param @primaryKeyName
+	 * @return
+	 */
+	@RequestMapping(value="/delete@LogicalTableName.do")
+	public JsonView<String> delete@LogicalTableName_methodPost(HttpServletRequest request,@primaryKeyType @primaryKeyName)
+	{
+		JsonView<String> view=new JsonView<String>();
+		try{
+			AssertUtils.isNotBlank(@primaryKeyName, "参数无效");
+			Integer result=@logicalTableNameService.delete@LogicalTableNameBy@PrimaryKeyName(@primaryKeyName);
+			AssertUtils.isTrue(result.equals(1),"数据库操作失败");
+			setPromptMessage(view, view.CODE_SUCCESS, "操作成功");
+		}catch (BusinessException e) {
+			setPromptException(view, e);
+		}catch (Exception e) {
+			setPromptException(view, e);
+			logger.error("删除@classDescription异常",e);
+		}
+		return view;
+	}
+	 
+}

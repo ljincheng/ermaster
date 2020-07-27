@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="@PhysicalTableNameDao">
+    
+    <insert id="add@PhysicalTableName" parameterType="@physicalTableName" keyProperty="id"   useGeneratedKeys="true">
+INSERT INTO @PhysicalTableName
+(@columnNameInsertSet)
+VALUES(@columnValueInsertSet);
+    </insert>
+
+    <update id="update@PhysicalTableName" parameterType="@physicalTableName"> 
+        update @PhysicalTableName
+        set  @columnNameUpdateSet
+        where id=#{id}
+    </update>
+
+    <select id="find@PhysicalTableName" parameterType="long" resultType="@physicalTableName">
+        select * from @PhysicalTableName where status=1 and id=#{id}
+    </select>
+    
+    <select id="query@PhysicalTableNamePage" parameterType="map" resultType="@physicalTableName">
+    	<![CDATA[
+         select @columnNameSelectSet from @PhysicalTableName where 1=1 
+          ]]>
+          	@whereClp
+    </select>
+    
+    
+</mapper>
+	

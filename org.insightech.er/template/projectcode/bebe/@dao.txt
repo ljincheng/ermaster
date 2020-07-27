@@ -1,0 +1,33 @@
+package @package;
+
+@import
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @classDescription.
+ * @author ljc
+ * @version v1.0
+ */
+public interface @LogicalTableNameDao{
+	
+	/**
+	 * 添加@classDescription.
+	 * @param conn
+	 * @param @logicalTableName
+	 * @return
+	 */
+	public void insert(Connection conn,@LogicalTableName@suffix @logicalTableName);
+	
+	/**
+	 * 获取@classDescription数据列表.
+	 * @param conn
+	 * @param selectItem
+	 * @return
+	 */
+	public List<@LogicalTableName@suffix> queryList(Connection conn,Map<String,Object> selectItem);
+	
+@dao_primarykey	
+	 
+}

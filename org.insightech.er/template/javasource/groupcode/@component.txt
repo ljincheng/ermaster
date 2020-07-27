@@ -1,0 +1,62 @@
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.sql.Connection;
+
+import com.bebe.core.PageData;
+
+
+/**
+ * @classDescription.
+ * @author ljc
+ * @version v1.0
+ */
+public interface @LogicalTableNameComponent  {
+ 
+	/**
+	 * 添加@classDescription.
+	 * @param conn
+	 * @param @logicalTableName
+	 * @return
+	 */
+	public void add@LogicalTableName(Connection conn,@LogicalTableName @logicalTableName);
+	
+	/**
+	 * 根据@PrimaryKeyName修改@classDescription.
+	 * @param conn
+	 * @param @logicalTableName
+	 * @return
+	 */
+	public void update@LogicalTableNameBy@PrimaryKeyName(Connection conn,@LogicalTableName @logicalTableName);
+
+	/**
+	 * 根据@PrimaryKeyName删除@classDescription.
+	 * @param conn
+	 * @param @primaryKeyName
+	 * @return
+	 */
+	public void delete@LogicalTableNameBy@PrimaryKeyName(Connection conn,@primaryKeyType @primaryKeyName);
+
+	/**
+	 * 根据@PrimaryKeyName获取@classDescription.
+	 * @param conn
+	 * @param @primaryKeyName
+	 * @return
+	 */
+	public @LogicalTableName find@LogicalTableNameBy@PrimaryKeyName(Connection conn,@primaryKeyType @primaryKeyName);
+
+	/**
+	 * 获取@classDescription分页数据集.
+	 * @param conn
+	 * @param pageIndex
+	 *起始页
+	 * @param pageSize
+	 * 每页记录数
+	 * @param selectedItem
+	 * 过滤参数
+	 * @return
+	 */
+	public PageData<@LogicalTableName> query@LogicalTableNamePage(Connection conn,long pageIndex,int pageSize,Map<String,Object> selectedItem);
+
+}
